@@ -1,0 +1,66 @@
+# Ignore macOS system files
+.DS_Store
+
+# Ignore node_modules directory (for Node.js projects)
+node_modules/
+
+# Ignore log files
+*.log
+
+# Ignore build and production directories
+dist/
+build/
+
+# Ignore dependency directories
+bower_components/
+vendor/
+
+# Ignore environment variables file
+.env
+
+# Ignore IDE/editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Ignore OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Ignore compiled files
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+
+# Ignore JavaScript map files
+*.map
+
+# Ignore temporary files
+*.tmp
+*.bak
+*.old
+
+# Ignore generated documentation
+doc/
+
+# Ignore coverage reports
+coverage/
+*.lcov
+
+# Ignore various archives
+*.zip
+*.tar.gz
+*.rar
+*.7z
