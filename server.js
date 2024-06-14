@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 // const HOST = "192.168.236.1";
 // const HOST = "localhost";
-const PORT = 3306;
+const PORT = 4000;
 
 app.use(bodyParser.json());
 app.use("/api/users", userRoutes);
