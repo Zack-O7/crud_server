@@ -4,8 +4,8 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const userRoutes = require("./routes/userRoutes.js");
 
-app.use(cors());
 const app = express();
+app.use(cors());
 app.use(express.json());
 const PORT = 4000;
 
