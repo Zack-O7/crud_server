@@ -1,12 +1,10 @@
-const express = require("express");
-const router = express.Router();
 const db = require("../config/db.js");
 const bcrypt = require("bcrypt");
 
 const salt = 10;
 
 //post
-router.post("/signup", (req, res) => {
+const signup = (req, res) => {
   console.log(req.body);
   const sql =
     "INSERT INTO user_details (`firstName`, `lastName`, `email`,`password`) VALUES (?,?,?,?)";
@@ -42,10 +40,10 @@ router.post("/signup", (req, res) => {
         });
         
       });
-    });
+    };
 
-
-    router.post("/signin", (req, res) => {
+//post
+    const signin = (req, res) => {
       console.log(req.body);
       const sql =
         "SELECT * FROM user_details where email = ?";
@@ -110,7 +108,7 @@ router.post("/signup", (req, res) => {
             }
           );
         });
-      });
+      };
 
 
-module.exports = router;
+module.exports = {signup, signin};
