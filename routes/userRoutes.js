@@ -13,7 +13,14 @@ router.post("/signup", (req, res) => {
     bcrypt.hash(req.body.password.toString(), salt, (err, hash) => {
         if (err) {
           console.error("Error in hashing password: ", err);
-          return res.status(500).json({ message: "Error in hashing password" });
+          // return res.status(500).json({ message: "Error in hashing password" });
+            // Here the output will be like
+            // {
+            // "message": "Error in hashing password"
+            // }
+            return res.status(500).send("Error in hashing password");
+            // Here the output will be like
+            // Error in hashing password
         }
         const values = [
           req.body.firstName,
@@ -24,7 +31,7 @@ router.post("/signup", (req, res) => {
         db.query(sql, values, (err, result) => {
           if (err) {
             console.error("Error occurred:", err);
-            return res.status(400).json({ message: "Registration Failed" });
+            return res.status(400).send("Registration Failed");
           }
           const fullName = `${req.body.firstName} ${req.body.lastName}`;
           return res.status(200).json({
@@ -45,11 +52,17 @@ router.post("/signup", (req, res) => {
         db.query(sql, [req.body.email], (err, result) => {
           if (err) {
             console.error("Error occurred:", err);
-            return res.status(500).json("Database query error");
+            // return res.status(500).json({ message: "Database query error" });
+            // Here the output will be like
+            // {
+            // "message": "Database query error"
+            // }
+            return res.status(500).send("Database query error");
+            // Here the output will be like
+            // Database query error
           }
           if (result.length === 0) {
-            // return res.status(400).json({ message: "User not found" });
-            return res.status(400).json(`User not found`);
+            return res.status(400).send("User not found");
           }
 
           const user = result[0];
@@ -62,10 +75,10 @@ router.post("/signup", (req, res) => {
                 console.error("Error in comparing password:", err);
                 return res
                   .status(500)
-                  .json("Error in comparing password");
+                  .send("Error in comparing password");
               }
               if (!isMatch) {
-                return res.status(400).json("Invalid credentials");
+                return res.status(400).send("Invalid credentials");
               }
       
               // const accessToken = jwt.sign(
