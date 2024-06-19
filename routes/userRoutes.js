@@ -96,10 +96,16 @@ router.post("/signup", (req, res) => {
                 //   httpOnly: true,
                 // })
                 .json({
-                  message: "Login Successful",
-                  firstName: user.firstName,
-                  lastName: user.lastName,
-                  email: user.email
+                  // message: "Login Successful",
+                  // firstName: user.firstName,
+                  // lastName: user.lastName,
+                  // email: user.email
+
+                  status: "200", 
+                  message: "Query Executed",
+                  data: [{ statusMessage: "Login Successful",  firstName: user.firstName,
+                    lastName: user.lastName,
+                    email: user.email }]
                 });
             }
           );
