@@ -45,10 +45,11 @@ router.post("/signup", (req, res) => {
         db.query(sql, [req.body.email], (err, result) => {
           if (err) {
             console.error("Error occurred:", err);
-            return res.status(500).json({ message: "Database query error" });
+            return res.status(500).json("Database query error");
           }
           if (result.length === 0) {
-            return res.status(400).json({ message: "User not found" });
+            // return res.status(400).json({ message: "User not found" });
+            return res.status(400).json(`User not found`);
           }
 
           const user = result[0];
@@ -61,10 +62,10 @@ router.post("/signup", (req, res) => {
                 console.error("Error in comparing password:", err);
                 return res
                   .status(500)
-                  .json({ message: "Error in comparing password" });
+                  .json("Error in comparing password");
               }
               if (!isMatch) {
-                return res.status(400).json({ message: "Invalid credentials" });
+                return res.status(400).json("Invalid credentials");
               }
       
               // const accessToken = jwt.sign(
