@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 const salt = 10;
 
-//post
+//Post
 const signup = (req, res) => {
   console.log(req.body);
   const sql =
@@ -42,7 +42,7 @@ const signup = (req, res) => {
       });
     };
 
-//post
+//Post
     const signin = (req, res) => {
       console.log(req.body);
       const sql =
@@ -110,5 +110,17 @@ const signup = (req, res) => {
         });
       };
 
+      //Get
+      const getAllUsers = (req, res) => {
+        const sql = "SELECT * FROM user_details";
+        db.query(sql, (err, results) => {
+          if(err) {
+            console.error("Error Occurred:", err);
+            return res.status(500).send("Something went wrong");
+          }
+          return res.status(200).json(results);
+        });
+      };
 
-module.exports = {signup, signin};
+
+module.exports = {signup, signin, getAllUsers};
