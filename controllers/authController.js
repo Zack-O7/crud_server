@@ -118,7 +118,9 @@ const signup = (req, res) => {
             console.error("Error Occurred:", err);
             return res.status(500).send("Something went wrong");
           }
-          return res.status(200).json(results);
+          return res.status(200).json({status: "200", 
+            message: "Query Executed",
+            data: results});
         });
       };
 
