@@ -122,7 +122,11 @@ const signup = (req, res) => {
             message: "Query Executed",
             data: results});
         });
-      };
+      };    
+      
 
-
-module.exports = {signup, signin, getAllUsers};
+module.exports = {
+  signup, 
+  signin, 
+  getAllUsers,
+};
