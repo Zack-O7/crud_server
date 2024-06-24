@@ -22,7 +22,7 @@ const addNewCompany = (req, res) => {
       message: "Query Executed",
       data: [
         {
-          statusMessage: "Company reated Successfully",
+          statusMessage: "Company Created Successfully",
           id: result.insertId,
           companyName: companyName,
         },
