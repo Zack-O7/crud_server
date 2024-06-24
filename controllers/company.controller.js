@@ -10,11 +10,9 @@ const addNewCompany = (req, res) => {
   //     }`
   //   : defaultAvatar;
 
-  const logo = req?.file?.filename
-    ? `${req.protocol}://${req.get("host")}/storage/app/public/${
-        req.file.filename
-      }`
-    : null;
+  const logo = `${req.protocol}://${req.get("host")}/storage/app/public/${
+    req.file.filename
+  }`;
 
   const sql =
     "INSERT into company_details (companyName, companyEmail, logo, website) VALUES (?,?,?,?)";
