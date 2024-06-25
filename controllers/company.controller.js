@@ -1,7 +1,7 @@
 const db = require("../config/db.js");
 
 const addNewCompany = (req, res) => {
-  const { companyName, companyEmail, website } = req.body;
+  // const { companyName, companyEmail, website } = req.body;
   // const defaultAvatar =
   //   "https://raw.githubusercontent.com/nz-m/public-files/main/dp.jpg";
   // const logo = req?.file?.filename
@@ -10,9 +10,7 @@ const addNewCompany = (req, res) => {
   //     }`
   //   : defaultAvatar;
 
-  const logo = `${req.protocol}://${req.get("host")}/storage/app/public/${
-    req.file.filename
-  }`;
+    const { companyName, companyEmail, logo, website } = req.body;
 
   const sql =
     "INSERT into company_details (companyName, companyEmail, logo, website) VALUES (?,?,?,?)";
