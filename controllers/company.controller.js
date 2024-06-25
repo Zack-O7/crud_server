@@ -33,6 +33,21 @@ const addNewCompany = (req, res) => {
   });
 };
 
+      //Get
+      const getAllCompanies = (req, res) => {
+        const sql = "SELECT * FROM company_details";
+        db.query(sql, (err, results) => {
+          if(err) {
+            console.error("Error Occurred:", err);
+            return res.status(500).send("Something went wrong");
+          }
+          return res.status(200).json({status: "200", 
+            message: "Query Executed",
+            data: results});
+        });
+      }; 
+
 module.exports = {
   addNewCompany,
+  getAllCompanies,
 };
