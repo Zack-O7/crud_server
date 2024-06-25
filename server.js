@@ -6,7 +6,7 @@ const companyRoutes = require("./routes/company.routes.js");
 
 const app = express();
 app.use(cors());
-app.use(express.json({ limit: "100mb" }));
+app.use(express.json({ limit: "10mb" }));
 app.use("/storage", express.static(__dirname + "/storage"));
 const PORT = 4000;
 
