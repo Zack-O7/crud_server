@@ -10,9 +10,11 @@ const addNewCompany = (req, res) => {
   //     }`
   //   : defaultAvatar;
 
-  const logo = `${req.protocol}://${req.get("host")}/storage/app/public/${
-    req.file.filename
-  }`;
+  const logo = req?.file?.filename
+    ? `${req.protocol}://${req.get("host")}/storage/app/public/${
+        req.file.filename
+      }`
+    : null;
 
   // const { companyName, companyEmail, logo, website } = req.body;
 
