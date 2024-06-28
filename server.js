@@ -10,9 +10,10 @@ const PORT = 4000;
 // CORS configuration
 const corsOptions = {
   origin: "*", // Allow all origins for testing, change this to specific domains in production
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
   preflightContinue: false,
   optionsSuccessStatus: 204,
+  allowedHeaders: ["Content-Type"],
 };
 
 app.use(cors(corsOptions));
