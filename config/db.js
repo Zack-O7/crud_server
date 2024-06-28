@@ -9,19 +9,19 @@ const db = mysql.createConnection({
   //   database: "bfczuviifz0hxqg7bc3g",
   //   port: 3306,
 
-  //Method1
-  host: "bfcc3g-mysql.services.clever-cloud.com",
-  user: "uk5sbxo",
-  password: "zxbgf9E0C",
-  database: "bfcc3g",
-  port: 3306,
+  //Method1 Dummy Data
+  // host: "bfcc3g-mysql.services.clever-cloud.com",
+  // user: "uk5sbxo",
+  // password: "zxbgf9E0C",
+  // database: "bfcc3g",
+  // port: 3306,
 
   //Method2
-  // host: process.env.DB_HOST,
-  // user: process.env.DB_USER,
-  // password: process.env.DB_PASSWORD,
-  // database: process.env.DB_NAME,
-  // port: process.env.DB_PORT
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT,
 });
 
 // DB Connection
