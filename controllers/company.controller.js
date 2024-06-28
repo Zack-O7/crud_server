@@ -65,13 +65,11 @@ const addNewCompany = (req, res) => {
   const logo = req.file ? req.file.path : null;
 
   if (!companyName || !companyEmail || !website || !logo) {
-    return res.status(400).send({ message: "All fields are required" });
+    return res.status(400).send({ message: "All fields are required, including the logo." });
   }
 
-  console.log("File Path: ", logo); // Debugging statement to check file path
-
-  const query =
-    "INSERT INTO company_details (companyName, companyEmail, logo, website) VALUES (?, ?, ?, ?)";
+  // Proceed with database insertion
+  const query = "INSERT INTO company_details (companyName, companyEmail, logo, website) VALUES (?, ?, ?, ?)";
 
   db.query(query, [companyName, companyEmail, logo, website], (err, result) => {
     if (err) {
@@ -79,12 +77,10 @@ const addNewCompany = (req, res) => {
       return res.status(500).send({ message: "Database error" });
     }
 
-    res.status(201).send({
-      message: "Company added successfully",
-      companyId: result.insertId,
-    });
+    res.status(201).send({ message: "Company added successfully", companyId: result.insertId });
   });
 };
+
 
 const getAllCompanies = (req, res) => {
   const query = "SELECT * FROM company_details";
