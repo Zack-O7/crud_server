@@ -17,7 +17,7 @@ const PORT = 4000;
 // };
 
 app.use(cors());
-app.use(express.json({ limit: "100mb" }));
+app.use(express.json({ limit: "1000mb" }));
 app.use("/storage", express.static(__dirname + "/storage"));
 
 app.use(bodyParser.json());
