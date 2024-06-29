@@ -50,11 +50,16 @@ const addNewCompany = (req, res) => {
     const { companyName, companyEmail, website } = req.body;
     const defaultAvatar =
       "https://raw.githubusercontent.com/nz-m/public-files/main/dp.jpg";
+    // const logo = req?.file?.filename
+    //   ? `${req.protocol}://${req.get("host")}/storage/app/public/${
+    //       req.file.filename
+    //     }`
+    //   : defaultAvatar;
     const logo = req?.file?.filename
       ? `${req.protocol}://${req.get("host")}/storage/app/public/${
           req.file.filename
         }`
-      : defaultAvatar;
+      : null;
 
     // Validate required fields
     if (!companyName || !companyEmail || !website || !logo) {
