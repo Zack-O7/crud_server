@@ -1,5 +1,7 @@
-const db = require("../config/db.js");
-const bcrypt = require("bcryptjs");
+// const db = require("../config/db.js");
+// const bcrypt = require("bcrypt");
+import {db} from "../config/db.js";
+import {bcrypt} from "bcrypt";
 
 const salt = 10;
 

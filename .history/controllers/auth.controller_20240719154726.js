@@ -1,5 +1,5 @@
 const db = require("../config/db.js");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 
 const salt = 10;
 

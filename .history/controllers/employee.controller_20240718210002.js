@@ -1,4 +1,5 @@
-const db = require("../config/db.js");
+// const db = require("../config/db.js");
+import {db} from "../config/db.js";
 
 const addNewEmployee = (req, res) => {
   try {

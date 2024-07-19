@@ -104,107 +104,37 @@ const addNewCompany = (req, res) => {
 };
 
 //Update
-// const updateCompany = (req, res) => {
-//   try {
-//     const { id, companyName, companyEmail, website } = req.body;
-//     const defaultAvatar =
-//     "https://raw.githubusercontent.com/nz-m/public-files/main/dp.jpg";
-//   const logo = req?.file?.filename
-//     ? `${req.protocol}://${req.get("host")}/storage/app/public/${
-//         req.file.filename
-//       }`
-//     : null;
-
-//         // Validate required fields
-//         if (!id || !companyName || !companyEmail || !website) {
-//           return res.status(400).send({ message: "All fields are required." });
-//         }
-
-//         // const sql = "UPDATE company_details SET companyName = ?, companyEmail = ?, website = ? WHERE id = ?";
-//         // const params = [companyName, companyEmail, website, id];
-
-//         let sql = "UPDATE company_details SET companyName = ?, companyEmail = ?, website = ?";
-//         const params = [companyName, companyEmail, website];
-
-//         if (logo) {
-//           sql += ", logo = ?";
-//           params.push(logo);
-//         }
-    
-//         sql += " WHERE id = ?";
-//         params.push(id);
-
-//         // Execute query
-//     db.query(sql, params, (err, result) => {
-//       if (err) {
-//         console.error("Database query error:", err);
-
-//         // Differentiate between different types of database errors
-//         if (err.code === "ER_DUP_ENTRY") {
-//           return res.status(409).send({ message: "Company already exists." });
-//         }
-
-//         return res
-//           .status(500)
-//           .send({ message: "Something went wrong while executing the query." });
-//       }
-
-//       // if (result.affectedRows === 0) {
-//       //   return res.status(404).send({ message: "Company not found." });
-//       // }
-
-//       console.log(id);
-//       console.log(companyName);
-//       console.log(companyEmail);
-//       console.log(website);
-//       console.log(logo);
-
-//       return res.status(200).json({
-//         status: "200",
-//         message: "Query Executed",
-//         data: [
-//           {
-//             statusMessage: "Company Updated Successfully",
-//             id: id,
-//             companyName: companyName,
-//           },
-//         ],
-//       });
-//     });
-//   }
-//   catch(err) {
-//      console.error("Unexpected error:", err);
-//     return res.status(500).send({ message: "An unexpected error occurred." });
-//   }
-// }
-
-
 const updateCompany = (req, res) => {
   try {
     const { id, companyName, companyEmail, website } = req.body;
-    console.log(req.body);
-    const defaultAvatar = "https://raw.githubusercontent.com/nz-m/public-files/main/dp.jpg";
-    const logo = req?.file?.filename
-      ? `${req.protocol}://${req.get("host")}/storage/app/public/${req.file.filename}`
-      : null;
+    const defaultAvatar =
+    "https://raw.githubusercontent.com/nz-m/public-files/main/dp.jpg";
+  const logo = req?.file?.filename
+    ? `${req.protocol}://${req.get("host")}/storage/app/public/${
+        req.file.filename
+      }`
+    : null;
 
-    // Validate required fields
-    if (!id || !companyName || !companyEmail || !website) {
-      return res.status(400).send({ message: "All fields are required." });
-    }
+        // Validate required fields
+        if (!id || !companyName || !companyEmail || !website) {
+          return res.status(400).send({ message: "All fields are required." });
+        }
 
-    let sql = "UPDATE company_details SET companyName = ?, companyEmail = ?, website = ?";
-    const params = [companyName, companyEmail, website];
+        // const sql = "UPDATE company_details SET companyName = ?, companyEmail = ?, website = ? WHERE id = ?";
+        // const params = [companyName, companyEmail, website, id];
 
-    if (logo) {
-      sql += ", logo = ?";
-      params.push(logo);
-    }
+        let sql = "UPDATE company_details SET companyName = ?, companyEmail = ?, website = ?";
+        const params = [companyName, companyEmail, website];
 
-    sql += " WHERE id = ?";
-    params.push(id);
+        if (logo) {
+          sql += ", logo = ?";
+          params.push(logo);
+        }
+    
+        sql += " WHERE id = ?";
+        params.push(id);
 
-    // Execute query
+        // Execute query
     db.query(sql, params, (err, result) => {
       if (err) {
         console.error("Database query error:", err);
@@ -214,14 +144,20 @@ const updateCompany = (req, res) => {
           return res.status(409).send({ message: "Company already exists." });
         }
 
-        return res.status(500).send({ message: "Something went wrong while executing the query." });
+        return res
+          .status(500)
+          .send({ message: "Something went wrong while executing the query." });
       }
 
-      if (result.affectedRows === 0) {
-        return res.status(404).send({ message: "Company not found." });
-      }
+      // if (result.affectedRows === 0) {
+      //   return res.status(404).send({ message: "Company not found." });
+      // }
 
-      console.log(id, companyName, companyEmail, website, logo);
+      console.log(id);
+      console.log(companyName);
+      console.log(companyEmail);
+      console.log(website);
+      console.log(logo);
 
       return res.status(200).json({
         status: "200",
@@ -235,13 +171,12 @@ const updateCompany = (req, res) => {
         ],
       });
     });
-  } catch (err) {
-    console.error("Unexpected error:", err);
+  }
+  catch(err) {
+     console.error("Unexpected error:", err);
     return res.status(500).send({ message: "An unexpected error occurred." });
   }
-};
-
-
+}
 
 //Get
 const getAllCompanies = (req, res) => {

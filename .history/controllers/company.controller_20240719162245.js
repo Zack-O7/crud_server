@@ -182,7 +182,6 @@ const addNewCompany = (req, res) => {
 const updateCompany = (req, res) => {
   try {
     const { id, companyName, companyEmail, website } = req.body;
-    console.log(req.body);
     const defaultAvatar = "https://raw.githubusercontent.com/nz-m/public-files/main/dp.jpg";
     const logo = req?.file?.filename
       ? `${req.protocol}://${req.get("host")}/storage/app/public/${req.file.filename}`
@@ -217,9 +216,9 @@ const updateCompany = (req, res) => {
         return res.status(500).send({ message: "Something went wrong while executing the query." });
       }
 
-      if (result.affectedRows === 0) {
-        return res.status(404).send({ message: "Company not found." });
-      }
+      // if (result.affectedRows === 0) {
+      //   return res.status(404).send({ message: "Company not found." });
+      // }
 
       console.log(id, companyName, companyEmail, website, logo);
 

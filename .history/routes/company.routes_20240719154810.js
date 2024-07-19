@@ -1,9 +1,9 @@
-const express = require("express");
-const router = express.Router();
-const companyController = require("../controllers/company.controller.js");
-const multer = require("multer");
-const path = require("path");
-const fs = require("fs");
+// const express = require("express");
+// const router = express.Router();
+// const companyController = require("../controllers/company.controller.js");
+// const multer = require("multer");
+// const path = require("path");
+// const fs = require("fs");
 
 
 const upFolder = path.join(__dirname, "../storage/app/public");

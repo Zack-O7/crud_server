@@ -6,6 +6,7 @@ const companyRoutes = require("./routes/company.routes.js");
 const employeeRoutes = require("./routes/employee.routes.js");
 
 
+
 const app = express();
 const PORT = 4000;
 

@@ -181,8 +181,8 @@ const addNewCompany = (req, res) => {
 
 const updateCompany = (req, res) => {
   try {
+    console.log()
     const { id, companyName, companyEmail, website } = req.body;
-    console.log(req.body);
     const defaultAvatar = "https://raw.githubusercontent.com/nz-m/public-files/main/dp.jpg";
     const logo = req?.file?.filename
       ? `${req.protocol}://${req.get("host")}/storage/app/public/${req.file.filename}`

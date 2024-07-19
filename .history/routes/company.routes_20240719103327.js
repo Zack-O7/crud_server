@@ -1,10 +1,16 @@
-const express = require("express");
-const router = express.Router();
-const companyController = require("../controllers/company.controller.js");
-const multer = require("multer");
-const path = require("path");
-const fs = require("fs");
+// const express = require("express");
+// const router = express.Router();
+// const companyController = require("../controllers/company.controller.js");
+// const multer = require("multer");
+// const path = require("path");
+// const fs = require("fs");
 
+import {express} from "express";
+const router = express.Router();
+import {companyController} from "../controllers/company.controller.js";
+import {multer} from "multer";
+import {path} from "path";
+import {fs} from "fs";
 
 const upFolder = path.join(__dirname, "../storage/app/public");
 const storage = multer.diskStorage({

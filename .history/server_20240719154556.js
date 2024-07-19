@@ -6,6 +6,7 @@ const companyRoutes = require("./routes/company.routes.js");
 const employeeRoutes = require("./routes/employee.routes.js");
 
 
+
 const app = express();
 const PORT = 4000;
 
@@ -24,8 +25,8 @@ app.use(express.json({ limit: "5mb" }));
 
 app.use(bodyParser.json());
 app.use("/api/users", userRoutes);
-app.use("/api/company", companyRoutes);
-app.use("/api/employee", employeeRoutes);
+// app.use("/api/company", companyRoutes);
+// app.use("/api/employee", employeeRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
